@@ -9,7 +9,11 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    @IBOutlet weak var minutesLabel: NSTextField!
+    @IBOutlet weak var secondsLabel: NSTextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +26,13 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func onStop(sender: AnyObject) {
+        print("stop")
+    }
 
+    @IBAction func onStart(sender: AnyObject) {
+        print("start")
+        self.minutesLabel.stringValue = "24"
+    }
 }
 
