@@ -673,7 +673,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpr-od-6ne">
-                                <rect key="frame" x="80" y="2" width="70" height="32"/>
+                                <rect key="frame" x="80" y="97" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JFm-Zs-aPd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -683,7 +683,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-RY-RhY">
-                                <rect key="frame" x="156" y="2" width="69" height="32"/>
+                                <rect key="frame" x="156" y="97" width="69" height="32"/>
                                 <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LpW-7Q-A7g">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -693,7 +693,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="392-2z-jK4">
-                                <rect key="frame" x="137" y="182" width="27" height="67"/>
+                                <rect key="frame" x="137" y="117" width="27" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="vZW-H6-zi4">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -701,7 +701,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srd-kq-SlQ">
-                                <rect key="frame" x="160" y="182" width="134" height="67"/>
+                                <rect key="frame" x="160" y="117" width="134" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="00" id="QfT-gs-gtN">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -709,7 +709,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7g-AY-i5x">
-                                <rect key="frame" x="5" y="182" width="141" height="67"/>
+                                <rect key="frame" x="5" y="117" width="141" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="25" id="eCY-aa-PYe">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -719,6 +719,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="mainView" destination="m2S-Jp-Qdl" id="Uit-8O-ccO"/>
                         <outlet property="minutesLabel" destination="B7g-AY-i5x" id="xi8-n2-II4"/>
                         <outlet property="secondsLabel" destination="Srd-kq-SlQ" id="yUX-VD-saJ"/>
                     </connections>
