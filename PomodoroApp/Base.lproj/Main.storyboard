@@ -672,6 +672,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-Om-3wi" userLabel="bg image view">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="WoQ-9u-mAu"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew0-8t-Slr" userLabel="progress Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xXm-hk-2MR"/>
+                            </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpr-od-6ne">
                                 <rect key="frame" x="80" y="97" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JFm-Zs-aPd">
@@ -719,8 +727,10 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="bgImageView" destination="kb1-Om-3wi" id="nBO-DI-Fal"/>
                         <outlet property="mainView" destination="m2S-Jp-Qdl" id="Uit-8O-ccO"/>
                         <outlet property="minutesLabel" destination="B7g-AY-i5x" id="xi8-n2-II4"/>
+                        <outlet property="progressImageView" destination="ew0-8t-Slr" id="CyD-qF-s1x"/>
                         <outlet property="secondsLabel" destination="Srd-kq-SlQ" id="yUX-VD-saJ"/>
                     </connections>
                 </viewController>

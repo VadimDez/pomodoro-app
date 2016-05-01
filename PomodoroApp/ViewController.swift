@@ -12,8 +12,13 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var minutesLabel: NSTextField!
     @IBOutlet weak var secondsLabel: NSTextField!
+    @IBOutlet weak var bgImageView: NSImageView!
+    @IBOutlet weak var progressImageView: NSImageView!
     
     var timer: Timer!
+    var countdownMinutes = 1
+    let countdownSeconds = 0
+    
     @IBOutlet var mainView: NSView!
     
     override func viewDidLoad() {
@@ -21,14 +26,21 @@ class ViewController: NSViewController {
 
         // Do any additional setup after loading the view.
         
-        self.timer = Timer(minutes: 25, seconds: 0, callback: self.callback)
+        self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
+        self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
         
-        self.drawCircle()
+        self.timer = Timer(minutes: self.countdownMinutes, seconds: self.countdownSeconds, callback: self.callback)
+        
+        self.drawBackgroundCircle()
+        
+        self.drawProgressCircle(0)
     }
     
     func callback (minutes: Int, seconds: Int) {
         self.minutesLabel.stringValue = self.doubleNumber(minutes)
         self.secondsLabel.stringValue = self.doubleNumber(seconds)
+        
+        self.drawProgressCircle(Float(minutes * 60 + seconds) / Float(self.countdownMinutes * 60 + self.countdownSeconds))
     }
     
     func doubleNumber(number: Int) -> String {
@@ -49,12 +61,8 @@ class ViewController: NSViewController {
         self.timer.start()
     }
     
-    func drawCircle() {
+    func drawBackgroundCircle() {
         
-        let width: CGFloat = self.view.frame.size.width;
-        let height: CGFloat = self.view.frame.size.height
-        
-        let frameRect = NSRect(x: 0, y: 0, width: width, height: height)
         let image = NSImage(size: self.view.frame.size)
         
         image.lockFocus()
@@ -62,11 +70,13 @@ class ViewController: NSViewController {
         
         let path = NSBezierPath()
         
-        let centerPoint = NSPoint(x: width / 2, y: height / 2)
+        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
         
         path.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 0, endAngle: 360)
         
         path.moveToPoint(NSPoint(x: 0, y: 0))
+        
+        NSColor.redColor().setStroke()
         
         path.lineWidth = 20
         path.stroke()
@@ -74,10 +84,31 @@ class ViewController: NSViewController {
         
         image.unlockFocus()
         
+        self.bgImageView.image = image
+    }
+    
+    func drawProgressCircle(progressPercentage: Float) {
+        let progressValue: CGFloat = CGFloat(progressPercentage * 360 + 90)
         
-        let view2 = NSImageView(frame: frameRect)
-        view2.image = image
-        self.view.addSubview(view2)
+        let image = NSImage(size: self.view.frame.size)
+        
+        image.lockFocus()
+        
+        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        let progress = NSBezierPath()
+        progress.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 450, endAngle: progressValue, clockwise: true)
+        
+        progress.moveToPoint(NSPoint(x: 0, y: 0))
+        
+        NSColor.greenColor().setStroke()
+        
+        progress.lineWidth = 20
+        progress.stroke()
+        
+        
+        image.unlockFocus()
+        
+        self.progressImageView.image = image
     }
 }
 
