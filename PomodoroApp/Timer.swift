@@ -47,6 +47,7 @@ class Timer : NSObject {
             
             if (self.minutes < 0) {
                 self.stop()
+                return;
             }
         }
         

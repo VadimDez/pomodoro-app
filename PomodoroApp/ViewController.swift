@@ -19,7 +19,7 @@ class ViewController: NSViewController {
     var countdownMinutes = 1
     let countdownSeconds = 0
     
-    @IBOutlet var mainView: NSView!
+    @IBOutlet var mainView: ColoredView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,8 @@ class ViewController: NSViewController {
         self.timer = Timer(minutes: self.countdownMinutes, seconds: self.countdownSeconds, callback: self.callback)
         
         self.drawBackgroundCircle()
+        
+        self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
     }
     
     func callback (minutes: Int, seconds: Int) {
@@ -73,7 +75,7 @@ class ViewController: NSViewController {
         
         path.moveToPoint(NSPoint(x: 0, y: 0))
         
-        NSColor.redColor().setStroke()
+        NSColor(red: 1, green: 1, blue: 1, alpha: 1).setStroke()
         
         path.lineWidth = 20
         path.stroke()
@@ -97,7 +99,7 @@ class ViewController: NSViewController {
         
         progress.moveToPoint(NSPoint(x: 0, y: 0))
         
-        NSColor.greenColor().setStroke()
+        NSColor(red: 237/255, green: 75/255, blue: 94/255, alpha: 1).setStroke()
         
         progress.lineWidth = 20
         progress.stroke()
