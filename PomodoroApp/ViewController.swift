@@ -17,7 +17,8 @@ class ViewController: NSViewController {
     
     var timer: Timer!
     var countdownMinutes = 1
-    let countdownSeconds = 0
+    var countdownSeconds = 0
+    var isRest = false
     
     @IBOutlet var mainView: ColoredView!
     
@@ -40,6 +41,14 @@ class ViewController: NSViewController {
         self.secondsLabel.stringValue = self.doubleNumber(seconds)
         
         self.drawProgressCircle(Float(minutes * 60 + seconds) / Float(self.countdownMinutes * 60 + self.countdownSeconds))
+        
+        if (minutes == 0 && seconds == 0) {
+            if self.isRest {
+                self.session()
+            } else {
+                self.rest()
+            }
+        }
     }
     
     func doubleNumber(number: Int) -> String {
@@ -99,7 +108,11 @@ class ViewController: NSViewController {
         
         progress.moveToPoint(NSPoint(x: 0, y: 0))
         
-        NSColor(red: 237/255, green: 75/255, blue: 94/255, alpha: 1).setStroke()
+        if (self.isRest) {
+            NSColor(red: 69/255, green: 105/255, blue: 144/255, alpha: 1).setStroke()
+        } else {
+            NSColor(red: 237/255, green: 75/255, blue: 94/255, alpha: 1).setStroke()
+        }
         
         progress.lineWidth = 20
         progress.stroke()
@@ -108,6 +121,35 @@ class ViewController: NSViewController {
         image.unlockFocus()
         
         self.progressImageView.image = image
+    }
+    
+    func session() {
+        self.isRest = false
+        self.countdownMinutes = 1
+        self.countdownSeconds = 0
+        
+        self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
+        
+        self.resetCycle()
+    }
+    
+    func rest() {
+        self.isRest = true
+        self.countdownMinutes = 1
+        self.countdownSeconds = 0
+        
+        self.mainView.backgroundColor = NSColor(red: 69/255, green: 123/255, blue: 157/255, alpha: 1.0)
+        
+        self.resetCycle()
+    }
+    
+    func resetCycle() {
+        self.timer.setMinutes(self.countdownMinutes)
+        self.timer.setSeconds(self.countdownSeconds)
+        
+        self.drawProgressCircle(0)
+        
+        self.timer.start()
     }
 }
 

@@ -54,11 +54,11 @@ class Timer : NSObject {
         self.callback(minutes: self.minutes, seconds: self.seconds)
     }
     
-    func getMinutes() -> Int {
-        return self.minutes
+    func setMinutes(minutes: Int) {
+        self.minutes = minutes
     }
     
-    func getSeconds() -> Int {
-        return self.seconds
+    func setSeconds(seconds: Int) {
+        self.seconds = seconds
     }
 }
