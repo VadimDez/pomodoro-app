@@ -23,17 +23,14 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
         self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
         
+        
         self.timer = Timer(minutes: self.countdownMinutes, seconds: self.countdownSeconds, callback: self.callback)
         
         self.drawBackgroundCircle()
-        
-        self.drawProgressCircle(0)
     }
     
     func callback (minutes: Int, seconds: Int) {
