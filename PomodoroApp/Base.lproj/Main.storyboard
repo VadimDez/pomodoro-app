@@ -681,7 +681,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="xXm-hk-2MR"/>
                             </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpr-od-6ne">
-                                <rect key="frame" x="114" y="97" width="30" height="30"/>
+                                <rect key="frame" x="135" y="85" width="30" height="30"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="play" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="JFm-Zs-aPd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -691,7 +691,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-RY-RhY">
-                                <rect key="frame" x="162" y="97" width="30" height="30"/>
+                                <rect key="frame" x="135" y="85" width="30" height="30"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="pause" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="LpW-7Q-A7g">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -701,7 +701,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="392-2z-jK4">
-                                <rect key="frame" x="137" y="117" width="27" height="67"/>
+                                <rect key="frame" x="137" y="105" width="27" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title=":" id="vZW-H6-zi4">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -709,7 +709,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srd-kq-SlQ">
-                                <rect key="frame" x="160" y="117" width="134" height="67"/>
+                                <rect key="frame" x="160" y="105" width="134" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="00" id="QfT-gs-gtN">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -717,7 +717,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7g-AY-i5x">
-                                <rect key="frame" x="5" y="117" width="141" height="67"/>
+                                <rect key="frame" x="5" y="105" width="141" height="67"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="25" id="eCY-aa-PYe">
                                     <font key="font" size="45" name="Helvetica"/>
                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -732,6 +732,8 @@
                         <outlet property="minutesLabel" destination="B7g-AY-i5x" id="xi8-n2-II4"/>
                         <outlet property="progressImageView" destination="ew0-8t-Slr" id="CyD-qF-s1x"/>
                         <outlet property="secondsLabel" destination="Srd-kq-SlQ" id="yUX-VD-saJ"/>
+                        <outlet property="startBtn" destination="jpr-od-6ne" id="5XV-kd-ptG"/>
+                        <outlet property="stopBtn" destination="i1K-RY-RhY" id="CzG-GM-Yp8"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

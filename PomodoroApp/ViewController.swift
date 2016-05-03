@@ -14,6 +14,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var secondsLabel: NSTextField!
     @IBOutlet weak var bgImageView: NSImageView!
     @IBOutlet weak var progressImageView: NSImageView!
+    @IBOutlet weak var startBtn: NSButton!
+    @IBOutlet weak var stopBtn: NSButton!
     
     var timer: Timer!
     var countdownMinutes = 1
@@ -24,6 +26,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.stopBtn.hidden = true
         
         self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
         self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
@@ -63,10 +67,16 @@ class ViewController: NSViewController {
 
     @IBAction func onStop(sender: AnyObject) {
         self.timer.stop()
+        
+        self.stopBtn.hidden = true
+        self.startBtn.hidden = false
     }
 
     @IBAction func onStart(sender: AnyObject) {
         self.timer.start()
+        
+        self.startBtn.hidden = true
+        self.stopBtn.hidden = false
     }
     
     func drawBackgroundCircle() {
