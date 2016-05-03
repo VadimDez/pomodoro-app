@@ -18,7 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var stopBtn: NSButton!
     
     var timer: Timer!
-    var countdownMinutes = 1
+    var countdownMinutes = 25
     var countdownSeconds = 0
     var isRest = false
     
@@ -142,7 +142,7 @@ class ViewController: NSViewController {
     
     func session() {
         self.isRest = false
-        self.countdownMinutes = 1
+        self.countdownMinutes = 25
         self.countdownSeconds = 0
         
         self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
@@ -152,7 +152,7 @@ class ViewController: NSViewController {
     
     func rest() {
         self.isRest = true
-        self.countdownMinutes = 1
+        self.countdownMinutes = 5
         self.countdownSeconds = 0
         
         self.mainView.backgroundColor = NSColor(red: 69/255, green: 123/255, blue: 157/255, alpha: 1.0)
