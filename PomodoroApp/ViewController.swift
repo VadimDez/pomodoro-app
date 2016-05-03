@@ -38,6 +38,13 @@ class ViewController: NSViewController {
         self.drawBackgroundCircle()
         
         self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
+        
+    }
+    
+    override func viewDidAppear() {
+        self.view.window?.titlebarAppearsTransparent = true
+        self.view.window?.movableByWindowBackground = true
+        self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
     }
     
     func callback (minutes: Int, seconds: Int) {
