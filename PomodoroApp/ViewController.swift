@@ -95,7 +95,7 @@ class ViewController: NSViewController {
         
         let path = NSBezierPath()
         
-        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2 - 7)
         
         path.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 0, endAngle: 360)
         
@@ -119,7 +119,7 @@ class ViewController: NSViewController {
         
         image.lockFocus()
         
-        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2 - 7)
         let progress = NSBezierPath()
         progress.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 450, endAngle: progressValue, clockwise: true)
         
