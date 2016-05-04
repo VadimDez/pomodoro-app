@@ -168,5 +168,12 @@ class ViewController: NSViewController {
         
         self.timer.start()
     }
+    
+    @IBAction func showSettings(sender: AnyObject) {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let settingsViewController = storyboard.instantiateControllerWithIdentifier("settings") as! SettingsViewController
+        
+        self.presentViewControllerAsSheet(settingsViewController)
+    }
 }
 
