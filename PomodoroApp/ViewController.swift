@@ -47,8 +47,6 @@ class ViewController: NSViewController {
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.movableByWindowBackground = true
         self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
-        
-        self.sounds.cycleEnded()
     }
     
     func callback (minutes: Int, seconds: Int) {

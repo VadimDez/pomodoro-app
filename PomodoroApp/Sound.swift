@@ -10,13 +10,28 @@ import AppKit
 
 class Sound {
     private let cycleSound: NSSound!
+    private let defaults = NSUserDefaults.standardUserDefaults()
     
     init() {
         self.cycleSound = NSSound(named: "ding")
         self.cycleSound.volume = 0.5
     }
     
+    /**
+     * Check if can play
+     */
+    func canPlay() -> Bool {
+        var play = 1
+        if let soundsEnabled = self.defaults.valueForKey(DataKeys.sounds) {
+            play = Int(soundsEnabled as! NSNumber)
+        }
+        
+        return play == 1
+    }
+    
     func cycleEnded() {
-        self.cycleSound.play()
+        if self.canPlay() {
+            self.cycleSound.play()
+        }
     }
 }

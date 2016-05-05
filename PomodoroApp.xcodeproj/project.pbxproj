@@ -17,6 +17,8 @@
 		1240EC031CD21DD9000A7134 /* PomodoroAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240EC021CD21DD9000A7134 /* PomodoroAppTests.swift */; };
 		1240EC0E1CD21DD9000A7134 /* PomodoroAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240EC0D1CD21DD9000A7134 /* PomodoroAppUITests.swift */; };
 		1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294526B1CDB55AF009C6AF9 /* DataKeys.swift */; };
+		1294528A1CDB7579009C6AF9 /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 129452891CDB7579009C6AF9 /* ding.mp3 */; };
+		1294528C1CDB7640009C6AF9 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294528B1CDB7640009C6AF9 /* Sound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1240EC0D1CD21DD9000A7134 /* PomodoroAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroAppUITests.swift; sourceTree = "<group>"; };
 		1240EC0F1CD21DD9000A7134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1294526B1CDB55AF009C6AF9 /* DataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKeys.swift; sourceTree = "<group>"; };
+		129452891CDB7579009C6AF9 /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
+		1294528B1CDB7640009C6AF9 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				1205FD731CD28BBC00FBC59A /* Timer.swift */,
 				1294526B1CDB55AF009C6AF9 /* DataKeys.swift */,
 				1209607C1CD7CFD300F4C86C /* ColoredView.swift */,
+				1294528B1CDB7640009C6AF9 /* Sound.swift */,
+				129452881CDB7563009C6AF9 /* sounds */,
 			);
 			path = PomodoroApp;
 			sourceTree = "<group>";
@@ -132,6 +138,14 @@
 				1240EC0F1CD21DD9000A7134 /* Info.plist */,
 			);
 			path = PomodoroAppUITests;
+			sourceTree = "<group>";
+		};
+		129452881CDB7563009C6AF9 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				129452891CDB7579009C6AF9 /* ding.mp3 */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,7 @@
 			files = (
 				1240EBF51CD21DD9000A7134 /* Assets.xcassets in Resources */,
 				1240EBF81CD21DD9000A7134 /* Main.storyboard in Resources */,
+				1294528A1CDB7579009C6AF9 /* ding.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1294528C1CDB7640009C6AF9 /* Sound.swift in Sources */,
 				1205FD741CD28BBC00FBC59A /* Timer.swift in Sources */,
 				1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */,
 				1240EBF31CD21DD9000A7134 /* ViewController.swift in Sources */,
