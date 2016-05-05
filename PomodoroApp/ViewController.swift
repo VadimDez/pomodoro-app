@@ -16,22 +16,25 @@ class ViewController: NSViewController {
     @IBOutlet weak var progressImageView: NSImageView!
     @IBOutlet weak var startBtn: NSButton!
     @IBOutlet weak var stopBtn: NSButton!
+    @IBOutlet var mainView: ColoredView!
     
     var timer: Timer!
-    var countdownMinutes = 25
-    var countdownSeconds = 0
+    var countdownMinutes: Int!
+    var countdownSeconds: Int!
     var isRest = false
+    var defaults: NSUserDefaults!
     
-    @IBOutlet var mainView: ColoredView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.defaults = NSUserDefaults.standardUserDefaults()
+        
+        self.setSessionTimes()
+        
         self.stopBtn.hidden = true
         
-        self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
-        self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
-        
+        self.updateTimeLabels()
         
         self.timer = Timer(minutes: self.countdownMinutes, seconds: self.countdownSeconds, callback: self.callback)
         
@@ -84,6 +87,13 @@ class ViewController: NSViewController {
         
         self.startBtn.hidden = true
         self.stopBtn.hidden = false
+    }
+    
+    @IBAction func showSettings(sender: AnyObject) {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let settingsViewController = storyboard.instantiateControllerWithIdentifier("settings") as! SettingsViewController
+        
+        self.presentViewControllerAsSheet(settingsViewController)
     }
     
     func drawBackgroundCircle() {
@@ -142,20 +152,26 @@ class ViewController: NSViewController {
     
     func session() {
         self.isRest = false
-        self.countdownMinutes = 25
-        self.countdownSeconds = 0
         
-        self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
+        self.setSessionTimes()
+        
+        self.setBackgroudColor(239, g: 35, b: 60)
         
         self.resetCycle()
     }
     
     func rest() {
         self.isRest = true
-        self.countdownMinutes = 5
+        
+        if let restLength = self.defaults.stringForKey(DataKeys.restLength) {
+            self.countdownMinutes = Int(restLength)
+        } else {
+            self.defaults.setValue(5, forKey: DataKeys.sessionLength)
+            self.countdownMinutes = 5
+        }
         self.countdownSeconds = 0
         
-        self.mainView.backgroundColor = NSColor(red: 69/255, green: 123/255, blue: 157/255, alpha: 1.0)
+        self.setBackgroudColor(69, g: 123, b: 157)
         
         self.resetCycle()
     }
@@ -169,11 +185,24 @@ class ViewController: NSViewController {
         self.timer.start()
     }
     
-    @IBAction func showSettings(sender: AnyObject) {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let settingsViewController = storyboard.instantiateControllerWithIdentifier("settings") as! SettingsViewController
-        
-        self.presentViewControllerAsSheet(settingsViewController)
+    func setBackgroudColor(r: CGFloat, g: CGFloat, b: CGFloat) {
+        self.mainView.backgroundColor = NSColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+    }
+    
+    
+    func setSessionTimes() {
+        if let sessionLength = self.defaults.stringForKey(DataKeys.sessionLength) {
+            self.countdownMinutes = Int(sessionLength)
+        } else {
+            self.defaults.setValue(25, forKey: DataKeys.sessionLength)
+            self.countdownMinutes = 25
+        }
+        self.countdownSeconds = 0
+    }
+    
+    func updateTimeLabels() {
+        self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
+        self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
     }
 }
 

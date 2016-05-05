@@ -16,6 +16,7 @@
 		1240EBF81CD21DD9000A7134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1240EBF61CD21DD9000A7134 /* Main.storyboard */; };
 		1240EC031CD21DD9000A7134 /* PomodoroAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240EC021CD21DD9000A7134 /* PomodoroAppTests.swift */; };
 		1240EC0E1CD21DD9000A7134 /* PomodoroAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1240EC0D1CD21DD9000A7134 /* PomodoroAppUITests.swift */; };
+		1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294526B1CDB55AF009C6AF9 /* DataKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1240EC091CD21DD9000A7134 /* PomodoroAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1240EC0D1CD21DD9000A7134 /* PomodoroAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroAppUITests.swift; sourceTree = "<group>"; };
 		1240EC0F1CD21DD9000A7134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1294526B1CDB55AF009C6AF9 /* DataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				1206ECD81CDA0E4400AB3168 /* SettingsViewController.swift */,
 				1240EBF91CD21DD9000A7134 /* Info.plist */,
 				1205FD731CD28BBC00FBC59A /* Timer.swift */,
+				1294526B1CDB55AF009C6AF9 /* DataKeys.swift */,
 				1209607C1CD7CFD300F4C86C /* ColoredView.swift */,
 			);
 			path = PomodoroApp;
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1205FD741CD28BBC00FBC59A /* Timer.swift in Sources */,
+				1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */,
 				1240EBF31CD21DD9000A7134 /* ViewController.swift in Sources */,
 				1240EBF11CD21DD9000A7134 /* AppDelegate.swift in Sources */,
 				1206ECD91CDA0E4400AB3168 /* SettingsViewController.swift in Sources */,
