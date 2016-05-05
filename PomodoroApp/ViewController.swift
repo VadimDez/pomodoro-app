@@ -120,18 +120,7 @@ class ViewController: NSViewController {
         
         image.lockFocus()
 
-        
-        let path = NSBezierPath()
-        
-        path.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: 0, endAngle: 360)
-        
-        path.moveToPoint(NSPoint(x: 0, y: 0))
-        
-        NSColor(red: 1, green: 1, blue: 1, alpha: 1).setStroke()
-        
-        path.lineWidth = 20
-        path.stroke()
-        
+        self.createCirclePath(NSColor(red: 1, green: 1, blue: 1, alpha: 1), startAngle: 0, endAngle: 360)
         
         image.unlockFocus()
         
@@ -140,29 +129,37 @@ class ViewController: NSViewController {
     
     func drawProgressCircle(progressPercentage: Float) {
         let progressValue: CGFloat = CGFloat(progressPercentage * 360 + 90)
-        
         let image = NSImage(size: self.view.frame.size)
+        let color: NSColor
         
         image.lockFocus()
         
-        let progress = NSBezierPath()
-        progress.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: 450, endAngle: progressValue, clockwise: true)
-        
-        progress.moveToPoint(NSPoint(x: 0, y: 0))
-        
         if (self.isRest) {
-            NSColor(red: 69/255, green: 105/255, blue: 144/255, alpha: 1).setStroke()
+            color = NSColor(red: 69/255, green: 105/255, blue: 144/255, alpha: 1)
         } else {
-            NSColor(red: 237/255, green: 75/255, blue: 94/255, alpha: 1).setStroke()
+            color = NSColor(red: 237/255, green: 75/255, blue: 94/255, alpha: 1)
         }
         
-        progress.lineWidth = 20
-        progress.stroke()
-        
+        self.createCirclePath(color, startAngle: 450, endAngle: progressValue, clockwise: true)
         
         image.unlockFocus()
         
         self.progressImageView.image = image
+    }
+    
+    func createCirclePath(color: NSColor, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool = false) -> NSBezierPath {
+        let path = NSBezierPath()
+        
+        path.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+        
+        path.moveToPoint(NSPoint(x: 0, y: 0))
+        
+        color.setStroke()
+        
+        path.lineWidth = 20
+        path.stroke()
+        
+        return path
     }
     
     func getCenterPoint() -> NSPoint {
