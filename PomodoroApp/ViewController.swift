@@ -23,7 +23,7 @@ class ViewController: NSViewController {
     var countdownSeconds: Int!
     var isRest = false
     var defaults: NSUserDefaults!
-    
+    let sounds = Sound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +41,14 @@ class ViewController: NSViewController {
         self.drawBackgroundCircle()
         
         self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
-        
     }
     
     override func viewDidAppear() {
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.movableByWindowBackground = true
         self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
+        
+        self.sounds.cycleEnded()
     }
     
     func callback (minutes: Int, seconds: Int) {
@@ -57,6 +58,8 @@ class ViewController: NSViewController {
         self.drawProgressCircle(Float(minutes * 60 + seconds) / Float(self.countdownMinutes * 60 + self.countdownSeconds))
         
         if (minutes == 0 && seconds == 0) {
+            self.sounds.cycleEnded()
+            
             if self.isRest {
                 self.session()
             } else {
