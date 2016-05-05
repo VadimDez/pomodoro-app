@@ -24,11 +24,34 @@ class SettingsViewController: NSViewController {
     }
 
     @IBAction func dismissSettings(sender: AnyObject) {
+        let sessionLength = Int(self.sessionLengthField.stringValue)
+        let restLength = Int(self.restLengthField.stringValue)
+        var error = false
         
-        defaults.setValue(Int(self.sessionLengthField.stringValue), forKey: DataKeys.sessionLength)
-        defaults.setValue(Int(self.restLengthField.stringValue), forKey: DataKeys.restLength)
+        if (sessionLength < 1) {
+            error = true
+            self.sessionLengthField.backgroundColor = NSColor(red: 1, green: 0, blue: 0, alpha: 0.3)
+        } else {
+            self.sessionLengthField.backgroundColor = NSColor.whiteColor()
+        }
         
-        self.dismissViewController(self)
+        if (restLength < 1) {
+            error = true
+            self.restLengthField.backgroundColor = NSColor(red: 1, green: 0, blue: 0, alpha: 0.3)
+        } else {
+            self.restLengthField.backgroundColor = NSColor.whiteColor()
+        }
+        
+        self.sessionLengthField.window?.makeFirstResponder(nil)
+        
+        self.restLengthField.window?.makeFirstResponder(nil)
+        
+        if (!error) {
+            defaults.setValue(sessionLength, forKey: DataKeys.sessionLength)
+            defaults.setValue(restLength, forKey: DataKeys.restLength)
+        
+            self.dismissViewController(self)
+        }
     }
     
     func setTimes() {

@@ -122,9 +122,7 @@ class ViewController: NSViewController {
         
         let path = NSBezierPath()
         
-        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2 - 7)
-        
-        path.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 0, endAngle: 360)
+        path.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: 0, endAngle: 360)
         
         path.moveToPoint(NSPoint(x: 0, y: 0))
         
@@ -146,9 +144,8 @@ class ViewController: NSViewController {
         
         image.lockFocus()
         
-        let centerPoint = NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2 - 7)
         let progress = NSBezierPath()
-        progress.appendBezierPathWithArcWithCenter(centerPoint, radius: 120, startAngle: 450, endAngle: progressValue, clockwise: true)
+        progress.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: 450, endAngle: progressValue, clockwise: true)
         
         progress.moveToPoint(NSPoint(x: 0, y: 0))
         
@@ -165,6 +162,10 @@ class ViewController: NSViewController {
         image.unlockFocus()
         
         self.progressImageView.image = image
+    }
+    
+    func getCenterPoint() -> NSPoint {
+        return  NSPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2 - 7)
     }
     
     func session() {
