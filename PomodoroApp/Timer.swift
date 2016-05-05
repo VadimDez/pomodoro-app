@@ -27,7 +27,9 @@ class Timer : NSObject {
     }
     
     func stop() {
-        self.timer.invalidate()
+        if self.timer != nil {
+            self.timer.invalidate()
+        }
     }
     
     private func setupTimer() {
