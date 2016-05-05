@@ -171,7 +171,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mla-Vg-oRP">
-                                <rect key="frame" x="272" y="10" width="20" height="17"/>
+                                <rect key="frame" x="277" y="5" width="18" height="18"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="settings" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="hfb-UR-sO4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -190,6 +190,16 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-zK-tDI">
+                                <rect key="frame" x="5" y="5" width="18" height="18"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="reset" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="rsK-mu-2XV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="reset:" target="XfG-lQ-9wD" id="K4p-aX-gX7"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -281,6 +291,7 @@
     <resources>
         <image name="pause" width="51.200000762939453" height="51.200000762939453"/>
         <image name="play" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="reset" width="25.600000381469727" height="25.600000381469727"/>
         <image name="settings" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

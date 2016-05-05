@@ -76,10 +76,7 @@ class ViewController: NSViewController {
     }
 
     @IBAction func onStop(sender: AnyObject) {
-        self.timer.stop()
-        
-        self.stopBtn.hidden = true
-        self.startBtn.hidden = false
+        self.stop()
     }
 
     @IBAction func onStart(sender: AnyObject) {
@@ -96,12 +93,32 @@ class ViewController: NSViewController {
         self.presentViewControllerAsSheet(settingsViewController)
     }
     
+    @IBAction func reset(sender: AnyObject) {
+        self.stop()
+        
+        self.setSessionTimes()
+        
+        self.timer.setMinutes(self.countdownMinutes)
+        self.timer.setSeconds(self.countdownSeconds)
+        
+        self.updateTimeLabels()
+        
+        self.drawProgressCircle(1)
+    }
+    
+    func stop() {
+        self.timer.stop()
+        
+        self.stopBtn.hidden = true
+        self.startBtn.hidden = false
+    }
+    
     func drawBackgroundCircle() {
         
         let image = NSImage(size: self.view.frame.size)
         
         image.lockFocus()
-        
+
         
         let path = NSBezierPath()
         
