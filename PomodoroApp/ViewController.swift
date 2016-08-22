@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var startBtn: NSButton!
     @IBOutlet weak var stopBtn: NSButton!
     @IBOutlet var mainView: ColoredView!
+    @IBOutlet weak var sessionCountLabel: NSTextField!
     
     var timer: Timer!
     var countdownMinutes: Int!
@@ -24,6 +25,8 @@ class ViewController: NSViewController {
     var isRest = false
     var defaults: NSUserDefaults!
     let sounds = Sound()
+    var sessionCounter = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +64,16 @@ class ViewController: NSViewController {
             if self.isRest {
                 self.session()
             } else {
+                self.incrementSessionCounter()
                 self.rest()
             }
         }
+    }
+    
+    func incrementSessionCounter() {
+        self.sessionCounter += 1
+        
+        self.sessionCountLabel.stringValue = "\(self.sessionCounter)"
     }
     
     func doubleNumber(number: Int) -> String {

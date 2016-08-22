@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -200,7 +200,23 @@
                                     <action selector="reset:" target="XfG-lQ-9wD" id="K4p-aX-gX7"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ohG-k7-Fub">
+                                <rect key="frame" x="263" y="261" width="32" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="S3a-Vh-dic"/>
+                                    <constraint firstAttribute="width" constant="28" id="rGj-SK-amE"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="X05-5B-XLg">
+                                    <font key="font" size="13" name="Helvetica"/>
+                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="ohG-k7-Fub" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="2" id="Ia5-Aj-xuv"/>
+                            <constraint firstAttribute="trailing" secondItem="ohG-k7-Fub" secondAttribute="trailing" constant="7" id="Koy-Po-5st"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bgImageView" destination="kb1-Om-3wi" id="nBO-DI-Fal"/>
@@ -208,6 +224,7 @@
                         <outlet property="minutesLabel" destination="B7g-AY-i5x" id="xi8-n2-II4"/>
                         <outlet property="progressImageView" destination="ew0-8t-Slr" id="CyD-qF-s1x"/>
                         <outlet property="secondsLabel" destination="Srd-kq-SlQ" id="yUX-VD-saJ"/>
+                        <outlet property="sessionCountLabel" destination="ohG-k7-Fub" id="2d0-h9-JoL"/>
                         <outlet property="startBtn" destination="jpr-od-6ne" id="5XV-kd-ptG"/>
                         <outlet property="stopBtn" destination="i1K-RY-RhY" id="CzG-GM-Yp8"/>
                     </connections>
