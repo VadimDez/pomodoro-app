@@ -9,8 +9,8 @@
 import AppKit
 
 class Sound {
-    private let cycleSound: NSSound!
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let cycleSound: NSSound!
+    fileprivate let defaults = UserDefaults.standard
     
     init() {
         self.cycleSound = NSSound(named: "ding")
@@ -22,7 +22,7 @@ class Sound {
      */
     func canPlay() -> Bool {
         var play = 1
-        if let soundsEnabled = self.defaults.valueForKey(DataKeys.sounds) {
+        if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
             play = Int(soundsEnabled as! NSNumber)
         }
         

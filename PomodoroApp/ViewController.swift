@@ -23,7 +23,7 @@ class ViewController: NSViewController {
     var countdownMinutes: Int!
     var countdownSeconds: Int!
     var isRest = false
-    var defaults: NSUserDefaults!
+    var defaults: UserDefaults!
     let sounds = Sound()
     var sessionCounter = 0
     
@@ -31,11 +31,11 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.defaults = NSUserDefaults.standardUserDefaults()
+        self.defaults = UserDefaults.standard
         
         self.setSessionTimes()
         
-        self.stopBtn.hidden = true
+        self.stopBtn.isHidden = true
         
         self.updateTimeLabels()
         
@@ -48,11 +48,11 @@ class ViewController: NSViewController {
     
     override func viewDidAppear() {
         self.view.window?.titlebarAppearsTransparent = true
-        self.view.window?.movableByWindowBackground = true
-        self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
+        self.view.window?.isMovableByWindowBackground = true
+        //self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
     }
     
-    func callback (minutes: Int, seconds: Int) {
+    func callback (_ minutes: Int, seconds: Int) {
         self.minutesLabel.stringValue = self.doubleNumber(minutes)
         self.secondsLabel.stringValue = self.doubleNumber(seconds)
         
@@ -76,35 +76,35 @@ class ViewController: NSViewController {
         self.sessionCountLabel.stringValue = "\(self.sessionCounter)"
     }
     
-    func doubleNumber(number: Int) -> String {
+    func doubleNumber(_ number: Int) -> String {
         return String("0\(number)".characters.suffix(2))
     }
 
-    override var representedObject: AnyObject? {
+    /*override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
         }
-    }
+    }*/
 
-    @IBAction func onStop(sender: AnyObject) {
+    @IBAction func onStop(_ sender: AnyObject) {
         self.stop()
     }
 
-    @IBAction func onStart(sender: AnyObject) {
+    @IBAction func onStart(_ sender: AnyObject) {
         self.timer.start()
         
-        self.startBtn.hidden = true
-        self.stopBtn.hidden = false
+        self.startBtn.isHidden = true
+        self.stopBtn.isHidden = false
     }
     
-    @IBAction func showSettings(sender: AnyObject) {
+    @IBAction func showSettings(_ sender: AnyObject) {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let settingsViewController = storyboard.instantiateControllerWithIdentifier("settings") as! SettingsViewController
+        let settingsViewController = storyboard.instantiateController(withIdentifier: "settings") as! SettingsViewController
         
         self.presentViewControllerAsSheet(settingsViewController)
     }
     
-    @IBAction func reset(sender: AnyObject) {
+    @IBAction func reset(_ sender: AnyObject) {
         self.stop()
         
         self.setSessionTimes()
@@ -120,8 +120,8 @@ class ViewController: NSViewController {
     func stop() {
         self.timer.stop()
         
-        self.stopBtn.hidden = true
-        self.startBtn.hidden = false
+        self.stopBtn.isHidden = true
+        self.startBtn.isHidden = false
     }
     
     func drawBackgroundCircle() {
@@ -137,7 +137,7 @@ class ViewController: NSViewController {
         self.bgImageView.image = image
     }
     
-    func drawProgressCircle(progressPercentage: Float) {
+    func drawProgressCircle(_ progressPercentage: Float) {
         let progressValue: CGFloat = CGFloat(progressPercentage * 360 + 90)
         let image = NSImage(size: self.view.frame.size)
         let color: NSColor
@@ -157,12 +157,12 @@ class ViewController: NSViewController {
         self.progressImageView.image = image
     }
     
-    func createCirclePath(color: NSColor, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool = false) -> NSBezierPath {
+    func createCirclePath(_ color: NSColor, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool = false) -> NSBezierPath {
         let path = NSBezierPath()
         
-        path.appendBezierPathWithArcWithCenter(self.getCenterPoint(), radius: 120, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
+        path.appendArc(withCenter: self.getCenterPoint(), radius: 120, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
         
-        path.moveToPoint(NSPoint(x: 0, y: 0))
+        path.move(to: NSPoint(x: 0, y: 0))
         
         color.setStroke()
         
@@ -189,7 +189,7 @@ class ViewController: NSViewController {
     func rest() {
         self.isRest = true
         
-        if let restLength = self.defaults.stringForKey(DataKeys.restLength) {
+        if let restLength = self.defaults.string(forKey: DataKeys.restLength) {
             self.countdownMinutes = Int(restLength)
         } else {
             self.defaults.setValue(5, forKey: DataKeys.sessionLength)
@@ -211,13 +211,13 @@ class ViewController: NSViewController {
         self.timer.start()
     }
     
-    func setBackgroudColor(r: CGFloat, g: CGFloat, b: CGFloat) {
+    func setBackgroudColor(_ r: CGFloat, g: CGFloat, b: CGFloat) {
         self.mainView.backgroundColor = NSColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
     }
     
     
     func setSessionTimes() {
-        if let sessionLength = self.defaults.stringForKey(DataKeys.sessionLength) {
+        if let sessionLength = self.defaults.string(forKey: DataKeys.sessionLength) {
             self.countdownMinutes = Int(sessionLength)
         } else {
             self.defaults.setValue(25, forKey: DataKeys.sessionLength)

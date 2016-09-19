@@ -14,19 +14,19 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var restLengthField: NSTextField!
     @IBOutlet weak var soundsCheckbox: NSButton!
     
-    private var defaults: NSUserDefaults!
-    private var hasErrors: Bool = false
+    fileprivate var defaults: UserDefaults!
+    fileprivate var hasErrors: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.defaults = NSUserDefaults.standardUserDefaults()
+        self.defaults = UserDefaults.standard
         
         self.setTimes()
         self.setSounds()
     }
 
-    @IBAction func dismissSettings(sender: AnyObject) {
+    @IBAction func dismissSettings(_ sender: AnyObject) {
         let sessionLength = Int(self.sessionLengthField.stringValue)
         let restLength = Int(self.restLengthField.stringValue)
         
@@ -52,31 +52,31 @@ class SettingsViewController: NSViewController {
     /**
      * Validate text field
      */
-    private func validate(value: Int, textField: NSTextField) {
+    fileprivate func validate(_ value: Int, textField: NSTextField) {
         if (value < 1) {
             self.hasErrors = true
             textField.backgroundColor = NSColor(red: 1, green: 0, blue: 0, alpha: 0.3)
         } else {
-            textField.backgroundColor = NSColor.whiteColor()
+            textField.backgroundColor = NSColor.white
         }
     }
     
-    private func setTimes() {
-        if let sessionLength = self.defaults.stringForKey(DataKeys.sessionLength) {
+    fileprivate func setTimes() {
+        if let sessionLength = self.defaults.string(forKey: DataKeys.sessionLength) {
             self.sessionLengthField.stringValue = sessionLength
         } else {
             self.sessionLengthField.stringValue = "25"
         }
         
-        if let restLength = self.defaults.stringForKey(DataKeys.restLength) {
+        if let restLength = self.defaults.string(forKey: DataKeys.restLength) {
             self.restLengthField.stringValue = restLength
         } else {
             self.restLengthField.stringValue = "5"
         }
     }
     
-    private func setSounds() {
-        if let soundsEnabled = self.defaults.valueForKey(DataKeys.sounds) {
+    fileprivate func setSounds() {
+        if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
             self.soundsCheckbox.state = Int(soundsEnabled as! NSNumber)
         } else {
             self.soundsCheckbox.state = 1

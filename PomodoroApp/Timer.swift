@@ -10,12 +10,12 @@ import Foundation
 
 class Timer : NSObject {
     
-    private var minutes: Int!
-    private var seconds: Int!
-    private var callback: (minutes: Int, seconds: Int) -> Void
-    private var timer: NSTimer!
+    fileprivate var minutes: Int!
+    fileprivate var seconds: Int!
+    fileprivate var callback: (_ minutes: Int, _ seconds: Int) -> Void
+    fileprivate var timer: Foundation.Timer!
     
-    init(minutes: Int, seconds: Int, callback: (minutes: Int, seconds: Int) -> Void) {
+    init(minutes: Int, seconds: Int, callback: @escaping (_ minutes: Int, _ seconds: Int) -> Void) {
         self.minutes = minutes
         self.seconds = seconds
         self.callback = callback
@@ -32,15 +32,15 @@ class Timer : NSObject {
         }
     }
     
-    private func setupTimer() {
+    fileprivate func setupTimer() {
         if (self.timer !== nil) {
             self.timer.invalidate()
         }
         
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(cycle), userInfo: nil, repeats: true)
+        self.timer = Foundation.Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(cycle), userInfo: nil, repeats: true)
     }
     
-    func cycle(sender: AnyObject) {
+    func cycle(_ sender: AnyObject) {
         self.seconds = self.seconds - 1
         
         if (self.seconds < 0) {
@@ -53,14 +53,14 @@ class Timer : NSObject {
             }
         }
         
-        self.callback(minutes: self.minutes, seconds: self.seconds)
+        self.callback(self.minutes, self.seconds)
     }
     
-    func setMinutes(minutes: Int) {
+    func setMinutes(_ minutes: Int) {
         self.minutes = minutes
     }
     
-    func setSeconds(seconds: Int) {
+    func setSeconds(_ seconds: Int) {
         self.seconds = seconds
     }
 }

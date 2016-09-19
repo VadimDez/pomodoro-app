@@ -21,8 +21,8 @@ class ColoredView: NSView {
         }
     }
 
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
 
         // Drawing code here.
     }
@@ -34,6 +34,6 @@ class ColoredView: NSView {
     }
     
     override func updateLayer() {
-        self.layer?.backgroundColor = self._backgroundColor.CGColor
+        self.layer?.backgroundColor = self._backgroundColor.cgColor
     }
 }
