@@ -157,7 +157,7 @@ class ViewController: NSViewController {
         self.progressImageView.image = image
     }
     
-    func createCirclePath(_ color: NSColor, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool = false) -> NSBezierPath {
+    func createCirclePath(_ color: NSColor, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool = false) {
         let path = NSBezierPath()
         
         path.appendArc(withCenter: self.getCenterPoint(), radius: 120, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
@@ -168,8 +168,6 @@ class ViewController: NSViewController {
         
         path.lineWidth = 20
         path.stroke()
-        
-        return path
     }
     
     func getCenterPoint() -> NSPoint {
