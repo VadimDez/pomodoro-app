@@ -16,4 +16,4 @@ Afterwards you'll need to click on "Open"
 
 ## License
 
-MIT © Vadym Yatsyuk
+[MIT](https://tldrlegal.com/license/mit-license) © [Vadym Yatsyuk](https://github.com/vadimdez)
