@@ -12,4 +12,5 @@ struct DataKeys {
     static let sessionLength = "sessionLength"
     static let restLength = "restLength"
     static let sounds = "sounds"
+    static let stayOnTop = "onTop"
 }

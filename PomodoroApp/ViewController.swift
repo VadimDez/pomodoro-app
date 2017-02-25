@@ -26,6 +26,7 @@ class ViewController: NSViewController {
     var defaults: UserDefaults!
     let sounds = Sound()
     var sessionCounter = 0
+    var addedObserver = false
     
     
     override func viewDidLoad() {

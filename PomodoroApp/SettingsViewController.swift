@@ -13,6 +13,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var sessionLengthField: NSTextField!
     @IBOutlet weak var restLengthField: NSTextField!
     @IBOutlet weak var soundsCheckbox: NSButton!
+    @IBOutlet weak var alwaysOnTopCheckbox: NSButton!
     
     fileprivate var defaults: UserDefaults!
     fileprivate var hasErrors: Bool = false
@@ -24,6 +25,7 @@ class SettingsViewController: NSViewController {
         
         self.setTimes()
         self.setSounds()
+        self.setStayOnTop()
     }
 
     @IBAction func dismissSettings(_ sender: AnyObject) {
@@ -45,6 +47,7 @@ class SettingsViewController: NSViewController {
         defaults.setValue(sessionLength, forKey: DataKeys.sessionLength)
         defaults.setValue(restLength, forKey: DataKeys.restLength)
         defaults.setValue(self.soundsCheckbox.state, forKey: DataKeys.sounds)
+        defaults.setValue(self.alwaysOnTopCheckbox.state, forKey: DataKeys.stayOnTop)
         
         self.dismissViewController(self)
     }
@@ -80,6 +83,16 @@ class SettingsViewController: NSViewController {
             self.soundsCheckbox.state = Int(soundsEnabled as! NSNumber)
         } else {
             self.soundsCheckbox.state = 1
+        }
+    }
+    
+    private func setStayOnTop() {
+        if let stayOnTop = self.defaults.value(forKey: DataKeys.stayOnTop) {
+            self.alwaysOnTopCheckbox.state = Int(stayOnTop as! NSNumber)
+            NSApplication.shared().activate(ignoringOtherApps: true)
+        } else {
+            self.alwaysOnTopCheckbox.state = 0
+            NSApplication.shared().activate(ignoringOtherApps: false)
         }
     }
 }
