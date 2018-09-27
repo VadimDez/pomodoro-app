@@ -61,8 +61,8 @@ class ViewController: NSViewController {
         self.drawProgressCircle(Float(minutes * 60 + seconds) / Float(self.countdownMinutes * 60 + self.countdownSeconds))
         
         if (minutes == 0 && seconds == 0) {
-            self.sounds.cycleEnded()
             self.notification.cycleEnded()
+            self.sounds.cycleEnded()
             
             if self.isRest {
                 self.session()
