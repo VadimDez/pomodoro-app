@@ -14,6 +14,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var restLengthField: NSTextField!
     @IBOutlet weak var soundsCheckbox: NSButton!
     @IBOutlet weak var alwaysOnTopCheckbox: NSButton!
+    @IBOutlet weak var doNotDisturbCheckbox: NSButton!
     
     fileprivate var defaults: UserDefaults!
     fileprivate var hasErrors: Bool = false
@@ -26,6 +27,7 @@ class SettingsViewController: NSViewController {
         self.setTimes()
         self.setSounds()
         self.setStayOnTop()
+        self.setDoNotDisturb()
     }
 
     @IBAction func dismissSettings(_ sender: AnyObject) {
@@ -48,7 +50,7 @@ class SettingsViewController: NSViewController {
         defaults.setValue(restLength, forKey: DataKeys.restLength)
         defaults.setValue(self.soundsCheckbox.state, forKey: DataKeys.sounds)
         defaults.setValue(self.alwaysOnTopCheckbox.state, forKey: DataKeys.stayOnTop)
-        
+        defaults.setValue(self.doNotDisturbCheckbox.state, forKey: DataKeys.doNotDisturb)
         self.dismissViewController(self)
     }
     
@@ -93,6 +95,14 @@ class SettingsViewController: NSViewController {
         } else {
             self.alwaysOnTopCheckbox.state = 0
             NSApplication.shared().activate(ignoringOtherApps: false)
+        }
+    }
+    
+    private func setDoNotDisturb() {
+        if let doNotDisturb = self.defaults.value(forKey: DataKeys.doNotDisturb) {
+            self.doNotDisturbCheckbox.state = Int(doNotDisturb as! NSNumber)
+        } else {
+            self.doNotDisturbCheckbox.state = 0
         }
     }
 }

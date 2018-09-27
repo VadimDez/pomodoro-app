@@ -19,6 +19,7 @@
 		1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294526B1CDB55AF009C6AF9 /* DataKeys.swift */; };
 		1294528A1CDB7579009C6AF9 /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 129452891CDB7579009C6AF9 /* ding.mp3 */; };
 		1294528C1CDB7640009C6AF9 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294528B1CDB7640009C6AF9 /* Sound.swift */; };
+		64F6A410215CED1300E3F490 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F6A40F215CED1200E3F490 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		1294526B1CDB55AF009C6AF9 /* DataKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKeys.swift; sourceTree = "<group>"; };
 		129452891CDB7579009C6AF9 /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 		1294528B1CDB7640009C6AF9 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		64F6A40F215CED1200E3F490 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				1294526B1CDB55AF009C6AF9 /* DataKeys.swift */,
 				1209607C1CD7CFD300F4C86C /* ColoredView.swift */,
 				1294528B1CDB7640009C6AF9 /* Sound.swift */,
+				64F6A40F215CED1200E3F490 /* Notification.swift */,
 				129452881CDB7563009C6AF9 /* sounds */,
 			);
 			path = PomodoroApp;
@@ -286,6 +289,7 @@
 				1205FD741CD28BBC00FBC59A /* Timer.swift in Sources */,
 				1294526C1CDB55AF009C6AF9 /* DataKeys.swift in Sources */,
 				1240EBF31CD21DD9000A7134 /* ViewController.swift in Sources */,
+				64F6A410215CED1300E3F490 /* Notification.swift in Sources */,
 				1240EBF11CD21DD9000A7134 /* AppDelegate.swift in Sources */,
 				1206ECD91CDA0E4400AB3168 /* SettingsViewController.swift in Sources */,
 				1209607D1CD7CFD300F4C86C /* ColoredView.swift in Sources */,

@@ -25,6 +25,7 @@ class ViewController: NSViewController {
     var isRest = false
     var defaults: UserDefaults!
     let sounds = Sound()
+    let notification = Notification()
     var sessionCounter = 0
     var addedObserver = false
     
@@ -61,6 +62,7 @@ class ViewController: NSViewController {
         
         if (minutes == 0 && seconds == 0) {
             self.sounds.cycleEnded()
+            self.notification.cycleEnded()
             
             if self.isRest {
                 self.session()
@@ -93,6 +95,7 @@ class ViewController: NSViewController {
 
     @IBAction func onStart(_ sender: AnyObject) {
         self.timer.start()
+        self.notification.cycleStarted()
         
         self.startBtn.isHidden = true
         self.stopBtn.isHidden = false
@@ -120,6 +123,7 @@ class ViewController: NSViewController {
     
     func stop() {
         self.timer.stop()
+        self.notification.cycleEnded()
         
         self.stopBtn.isHidden = true
         self.startBtn.isHidden = false

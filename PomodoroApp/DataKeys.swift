@@ -13,4 +13,5 @@ struct DataKeys {
     static let restLength = "restLength"
     static let sounds = "sounds"
     static let stayOnTop = "onTop"
+    static let doNotDisturb = "doNotDisturb"
 }
