@@ -45,7 +45,7 @@ class ViewController: NSViewController {
         
         self.drawBackgroundCircle()
         
-        self.mainView.backgroundColor = NSColor(red: 239/255, green: 35/255, blue: 60/255, alpha: 1.0)
+        self.setBackgroudColorGreen()
     }
     
     override func viewDidAppear() {
@@ -96,6 +96,7 @@ class ViewController: NSViewController {
     @IBAction func onStart(_ sender: AnyObject) {
         self.timer.start()
         self.notification.cycleStarted()
+        self.setBackgroudColorRed()
         
         self.startBtn.isHidden = true
         self.stopBtn.isHidden = false
@@ -127,6 +128,8 @@ class ViewController: NSViewController {
         
         self.stopBtn.isHidden = true
         self.startBtn.isHidden = false
+        
+        self.setBackgroudColorGreen()
     }
     
     func drawBackgroundCircle() {
@@ -184,8 +187,8 @@ class ViewController: NSViewController {
         
         self.setSessionTimes()
         
-        self.setBackgroudColor(239, g: 35, b: 60)
-        
+        self.setBackgroudColorRed()
+        self.notification.cycleStarted()
         self.resetCycle()
     }
     
@@ -200,7 +203,7 @@ class ViewController: NSViewController {
         }
         self.countdownSeconds = 0
         
-        self.setBackgroudColor(69, g: 123, b: 157)
+        self.setBackgroudColorGreen()
         
         self.resetCycle()
     }
@@ -214,8 +217,12 @@ class ViewController: NSViewController {
         self.timer.start()
     }
     
-    func setBackgroudColor(_ r: CGFloat, g: CGFloat, b: CGFloat) {
-        self.mainView.backgroundColor = NSColor(red: r/255, green: g/255, blue: b/255, alpha: 1.0)
+    func setBackgroudColorRed() {
+        self.mainView.backgroundColor = NSColor(red:1.00, green:0.39, blue:0.43, alpha:1.00) // red
+    }
+    
+    func setBackgroudColorGreen() {
+        self.mainView.backgroundColor = NSColor(red:0.00, green:0.68, blue:0.52, alpha:1.00) // green
     }
     
     
