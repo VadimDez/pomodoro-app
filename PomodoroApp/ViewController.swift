@@ -78,7 +78,7 @@ class ViewController: NSViewController {
     }
     
     func doubleNumber(_ number: Int) -> String {
-        return String("0\(number)".characters.suffix(2))
+        return String(format: "%02d", number)
     }
 
     /*override var representedObject: AnyObject? {
