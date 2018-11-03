@@ -3,7 +3,7 @@ Pomodoro time management app for OS X
 
 ![](https://raw.githubusercontent.com/VadimDez/pomodoro-app/master/screenshots/main%2Bsettings.png)
 
-## How to use
+## How to install
 
 * Download latest release from [releases](https://github.com/VadimDez/pomodoro-app/releases) and unzip.
 * Only on first launch you have to *right click* or *cmd + click* on App and select "Open" from the list.
