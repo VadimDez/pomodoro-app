@@ -1,5 +1,8 @@
+# 0.2
+* [[#3](https://github.com/VadimDez/pomodoro-app/issues/3)] - Update project to Swift 5
+
 # 0.1.1
-* [#2](https://github.com/VadimDez/pomodoro-app/pull/2) - Auto do not disturb and changed colors
+* [[#2](https://github.com/VadimDez/pomodoro-app/pull/2)] - Auto do not disturb and changed colors
 
 # 0.1.0
 
