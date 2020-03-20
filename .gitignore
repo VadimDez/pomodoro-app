@@ -85,10 +85,10 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
-**/xcuserdata/
-**/**/xcuserdata/
 
+**/xcuserdata/
+**/*.xcdatamodeld
+PomodoroApp.xcodeproj/xcuserdata
 
 ## Other
 *.moved-aside
