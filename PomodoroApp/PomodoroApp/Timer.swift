@@ -40,7 +40,7 @@ class Timer : NSObject {
         self.timer = Foundation.Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(cycle), userInfo: nil, repeats: true)
     }
     
-    @objc func cycle(_ sender: AnyObject) {
+    func cycle(_ sender: AnyObject) {
         self.seconds = self.seconds - 1
         
         if (self.seconds < 0) {

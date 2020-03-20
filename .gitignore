@@ -86,6 +86,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+**/xcuserdata/
+**/**/xcuserdata/
+
 
 ## Other
 *.moved-aside
@@ -157,3 +160,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+.DS_Store

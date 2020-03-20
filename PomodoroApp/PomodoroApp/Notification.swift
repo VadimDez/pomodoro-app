@@ -2,8 +2,8 @@
 //  Notification.swift
 //  PomodoroApp
 //
-//  Created by Vadim Dez on 20.03.20.
-//  Copyright © 2020 Vadim Yatsyuk. All rights reserved.
+//  Created by Clemens Putschli on 27/09/18.
+//  Copyright © 2018 Clemens Putschli. All rights reserved.
 //
 
 import AppKit

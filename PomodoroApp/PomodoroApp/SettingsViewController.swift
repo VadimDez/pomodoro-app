@@ -42,7 +42,7 @@ class SettingsViewController: NSViewController {
         self.restLengthField.window?.makeFirstResponder(nil)
         
         if (self.hasErrors) {
-            NSSound.beep()
+            NSBeep()
             return
         }
         
@@ -51,11 +51,7 @@ class SettingsViewController: NSViewController {
         defaults.setValue(self.soundsCheckbox.state, forKey: DataKeys.sounds)
         defaults.setValue(self.alwaysOnTopCheckbox.state, forKey: DataKeys.stayOnTop)
         defaults.setValue(self.doNotDisturbCheckbox.state, forKey: DataKeys.doNotDisturb)
-        
-        
-        self.dismiss(self)
-        
-//        self.dismissViewController(self)
+        self.dismissViewController(self)
     }
     
     /**
@@ -86,27 +82,27 @@ class SettingsViewController: NSViewController {
     
     fileprivate func setSounds() {
         if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
-            self.soundsCheckbox.state = NSControl.StateValue(rawValue: Int(soundsEnabled as! NSNumber))
+            self.soundsCheckbox.state = Int(soundsEnabled as! NSNumber)
         } else {
-            self.soundsCheckbox.state = NSControl.StateValue(rawValue: 1)
+            self.soundsCheckbox.state = 1
         }
     }
     
     private func setStayOnTop() {
         if let stayOnTop = self.defaults.value(forKey: DataKeys.stayOnTop) {
-            self.alwaysOnTopCheckbox.state = NSControl.StateValue(rawValue: Int(stayOnTop as! NSNumber))
-            NSApplication.shared.activate(ignoringOtherApps: true)
+            self.alwaysOnTopCheckbox.state = Int(stayOnTop as! NSNumber)
+            NSApplication.shared().activate(ignoringOtherApps: true)
         } else {
-            self.alwaysOnTopCheckbox.state = NSControl.StateValue(rawValue: 0)
-            NSApplication.shared.activate(ignoringOtherApps: false)
+            self.alwaysOnTopCheckbox.state = 0
+            NSApplication.shared().activate(ignoringOtherApps: false)
         }
     }
     
     private func setDoNotDisturb() {
         if let doNotDisturb = self.defaults.value(forKey: DataKeys.doNotDisturb) {
-            self.doNotDisturbCheckbox.state = NSControl.StateValue(rawValue: Int(doNotDisturb as! NSNumber))
+            self.doNotDisturbCheckbox.state = Int(doNotDisturb as! NSNumber)
         } else {
-            self.doNotDisturbCheckbox.state = NSControl.StateValue(rawValue: 0)
+            self.doNotDisturbCheckbox.state = 0
         }
     }
 }
