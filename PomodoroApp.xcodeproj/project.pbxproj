@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124C130B26B4AA20008FF2E8 /* SystemSoundsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C130A26B4AA20008FF2E8 /* SystemSoundsExtension.swift */; };
 		126302BA24254EF8001003D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126302B924254EF8001003D5 /* AppDelegate.swift */; };
 		126302C124254EF9001003D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126302C024254EF9001003D5 /* Assets.xcassets */; };
 		126302C424254EF9001003D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126302C324254EF9001003D5 /* Preview Assets.xcassets */; };
@@ -18,10 +19,10 @@
 		126302D824255350001003D5 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126302D724255350001003D5 /* ColoredView.swift */; };
 		126302DA24255365001003D5 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126302D924255365001003D5 /* Timer.swift */; };
 		126302DC2425538C001003D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126302DB2425538C001003D5 /* SettingsViewController.swift */; };
-		126302E024255517001003D5 /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 126302DF24255517001003D5 /* ding.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124C130A26B4AA20008FF2E8 /* SystemSoundsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSoundsExtension.swift; sourceTree = "<group>"; };
 		126302B624254EF8001003D5 /* PomodoroApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126302B924254EF8001003D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126302C024254EF9001003D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		126302D724255350001003D5 /* ColoredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
 		126302D924255365001003D5 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		126302DB2425538C001003D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		126302DF24255517001003D5 /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +78,9 @@
 				126302D924255365001003D5 /* Timer.swift */,
 				126302DB2425538C001003D5 /* SettingsViewController.swift */,
 				126302D1242552E1001003D5 /* Notification.swift */,
+				124C130A26B4AA20008FF2E8 /* SystemSoundsExtension.swift */,
 				126302D32425530A001003D5 /* Sound.swift */,
 				126302D524255325001003D5 /* DataKeys.swift */,
-				126302E12425551F001003D5 /* sounds */,
 			);
 			path = PomodoroApp;
 			sourceTree = "<group>";
@@ -91,14 +91,6 @@
 				126302C324254EF9001003D5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		126302E12425551F001003D5 /* sounds */ = {
-			isa = PBXGroup;
-			children = (
-				126302DF24255517001003D5 /* ding.mp3 */,
-			);
-			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126302E024255517001003D5 /* ding.mp3 in Resources */,
 				126302C724254EF9001003D5 /* Main.storyboard in Resources */,
 				126302C424254EF9001003D5 /* Preview Assets.xcassets in Resources */,
 				126302C124254EF9001003D5 /* Assets.xcassets in Resources */,
@@ -173,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124C130B26B4AA20008FF2E8 /* SystemSoundsExtension.swift in Sources */,
 				126302D624255326001003D5 /* DataKeys.swift in Sources */,
 				126302D42425530A001003D5 /* Sound.swift in Sources */,
 				126302DC2425538C001003D5 /* SettingsViewController.swift in Sources */,
@@ -326,7 +318,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.PomodoroApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -348,7 +340,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.PomodoroApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
