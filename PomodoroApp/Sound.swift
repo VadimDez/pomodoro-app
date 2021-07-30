@@ -23,7 +23,7 @@ class Sound {
     func canPlay() -> Bool {
         var play = 1
         if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
-            play = Int(soundsEnabled as! NSNumber)
+            play = Int(truncating: soundsEnabled as! NSNumber)
         }
         
         return play == 1

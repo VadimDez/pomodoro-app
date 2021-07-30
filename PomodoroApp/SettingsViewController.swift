@@ -86,7 +86,7 @@ class SettingsViewController: NSViewController {
     
     fileprivate func setSounds() {
         if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
-            self.soundsCheckbox.state = NSControl.StateValue(rawValue: Int(soundsEnabled as! NSNumber))
+            self.soundsCheckbox.state = NSControl.StateValue(rawValue: Int(truncating: soundsEnabled as! NSNumber))
         } else {
             self.soundsCheckbox.state = NSControl.StateValue(rawValue: 1)
         }
@@ -94,7 +94,7 @@ class SettingsViewController: NSViewController {
     
     private func setStayOnTop() {
         if let stayOnTop = self.defaults.value(forKey: DataKeys.stayOnTop) {
-            self.alwaysOnTopCheckbox.state = NSControl.StateValue(rawValue: Int(stayOnTop as! NSNumber))
+            self.alwaysOnTopCheckbox.state = NSControl.StateValue(rawValue: Int(truncating: stayOnTop as! NSNumber))
             NSApplication.shared.activate(ignoringOtherApps: true)
         } else {
             self.alwaysOnTopCheckbox.state = NSControl.StateValue(rawValue: 0)
@@ -104,7 +104,7 @@ class SettingsViewController: NSViewController {
     
     private func setDoNotDisturb() {
         if let doNotDisturb = self.defaults.value(forKey: DataKeys.doNotDisturb) {
-            self.doNotDisturbCheckbox.state = NSControl.StateValue(rawValue: Int(doNotDisturb as! NSNumber))
+            self.doNotDisturbCheckbox.state = NSControl.StateValue(rawValue: Int(truncating: doNotDisturb as! NSNumber))
         } else {
             self.doNotDisturbCheckbox.state = NSControl.StateValue(rawValue: 0)
         }
