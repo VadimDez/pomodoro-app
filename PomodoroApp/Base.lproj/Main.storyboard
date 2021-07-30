@@ -164,6 +164,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onSoundToggle:" target="2L7-Wt-DHj" id="DSd-1K-kyi"/>
+                                </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-sH-aVn">
                                 <rect key="frame" x="104" y="101" width="107" height="18"/>

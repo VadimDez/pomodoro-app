@@ -36,6 +36,11 @@ class SettingsViewController: NSViewController {
         defaults.setValue(sender.title, forKey: DataKeys.alertSound)
     }
     
+    @IBAction func onSoundToggle(_ sender: NSButton) {
+        defaults.setValue(sender.state, forKey: DataKeys.sounds)
+        self.alertSoundButton.isEnabled = sender.state.rawValue == 1 ? true : false
+    }
+    
     @IBAction func dismissSettings(_ sender: AnyObject) {
         let sessionLength = Int(self.sessionLengthField.stringValue)
         let restLength = Int(self.restLengthField.stringValue)
@@ -54,7 +59,7 @@ class SettingsViewController: NSViewController {
         
         defaults.setValue(sessionLength, forKey: DataKeys.sessionLength)
         defaults.setValue(restLength, forKey: DataKeys.restLength)
-        defaults.setValue(self.soundsCheckbox.state, forKey: DataKeys.sounds)
+        
         defaults.setValue(self.alwaysOnTopCheckbox.state, forKey: DataKeys.stayOnTop)
         defaults.setValue(self.doNotDisturbCheckbox.state, forKey: DataKeys.doNotDisturb)
         
@@ -92,9 +97,12 @@ class SettingsViewController: NSViewController {
     
     fileprivate func setSounds() {
         if let soundsEnabled = self.defaults.value(forKey: DataKeys.sounds) {
-            self.soundsCheckbox.state = NSControl.StateValue(rawValue: Int(truncating: soundsEnabled as! NSNumber))
+            let value = Int(truncating: soundsEnabled as! NSNumber)
+            self.soundsCheckbox.state = NSControl.StateValue(rawValue: value)
+            self.alertSoundButton.isEnabled = value == 1 ? true : false;
         } else {
             self.soundsCheckbox.state = NSControl.StateValue(rawValue: 1)
+            self.alertSoundButton.isEnabled = true
         }
     }
     
