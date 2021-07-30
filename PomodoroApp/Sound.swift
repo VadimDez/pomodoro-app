@@ -9,13 +9,7 @@
 import AppKit
 
 class Sound {
-    fileprivate let cycleSound: NSSound!
     fileprivate let defaults = UserDefaults.standard
-    
-    init() {
-        self.cycleSound = NSSound(named: "ding")
-        self.cycleSound.volume = 0.5
-    }
     
     /**
      * Check if can play
@@ -31,7 +25,16 @@ class Sound {
     
     func cycleEnded() {
         if self.canPlay() {
-            self.cycleSound.play()
+            var cycleSound: NSSound
+            
+            if let soundName = self.defaults.string(forKey: DataKeys.alertSound) {
+                cycleSound = NSSound(named: soundName)!
+            } else {
+                cycleSound = NSSound(named: "Glass")!
+            }
+            
+            cycleSound.volume = 0.5
+            cycleSound.play()
         }
     }
 }

@@ -15,6 +15,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var soundsCheckbox: NSButton!
     @IBOutlet weak var alwaysOnTopCheckbox: NSButton!
     @IBOutlet weak var doNotDisturbCheckbox: NSButton!
+    @IBOutlet weak var alertSoundButton: NSPopUpButton!
     
     fileprivate var defaults: UserDefaults!
     fileprivate var hasErrors: Bool = false
@@ -28,8 +29,13 @@ class SettingsViewController: NSViewController {
         self.setSounds()
         self.setStayOnTop()
         self.setDoNotDisturb()
+        self.setAlertSounds()
     }
-
+    
+    @IBAction func onChange(_ sender: NSPopUpButtonCell) {
+        defaults.setValue(sender.title, forKey: DataKeys.alertSound)
+    }
+    
     @IBAction func dismissSettings(_ sender: AnyObject) {
         let sessionLength = Int(self.sessionLengthField.stringValue)
         let restLength = Int(self.restLengthField.stringValue)
@@ -89,6 +95,17 @@ class SettingsViewController: NSViewController {
             self.soundsCheckbox.state = NSControl.StateValue(rawValue: Int(truncating: soundsEnabled as! NSNumber))
         } else {
             self.soundsCheckbox.state = NSControl.StateValue(rawValue: 1)
+        }
+    }
+    
+    fileprivate func setAlertSounds() {
+        self.alertSoundButton.removeAllItems()
+        self.alertSoundButton.addItems(withTitles: NSSound.systemSounds)
+        
+        if let alertSound = self.defaults.string(forKey: DataKeys.alertSound) {
+            self.alertSoundButton.selectItem(withTitle: alertSound)
+        } else {
+            self.alertSoundButton.selectItem(withTitle: NSSound.systemSounds[0])
         }
     }
     
