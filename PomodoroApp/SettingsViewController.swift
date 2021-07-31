@@ -17,6 +17,8 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var doNotDisturbCheckbox: NSButton!
     @IBOutlet weak var alertSoundButton: NSPopUpButton!
     
+    var beforeDismiss: (() -> Void)? = nil
+    
     fileprivate var defaults: UserDefaults!
     fileprivate var hasErrors: Bool = false
     
@@ -41,6 +43,10 @@ class SettingsViewController: NSViewController {
         self.alertSoundButton.isEnabled = sender.state.rawValue == 1 ? true : false
     }
     
+    @IBAction func onAlwaysOnTopToggle(_ sender: NSButton) {
+        defaults.setValue(sender.state.rawValue, forKey: DataKeys.stayOnTop)
+    }
+    
     @IBAction func dismissSettings(_ sender: AnyObject) {
         let sessionLength = Int(self.sessionLengthField.stringValue)
         let restLength = Int(self.restLengthField.stringValue)
@@ -60,10 +66,11 @@ class SettingsViewController: NSViewController {
         defaults.setValue(sessionLength, forKey: DataKeys.sessionLength)
         defaults.setValue(restLength, forKey: DataKeys.restLength)
         
-        defaults.setValue(self.alwaysOnTopCheckbox.state, forKey: DataKeys.stayOnTop)
         defaults.setValue(self.doNotDisturbCheckbox.state, forKey: DataKeys.doNotDisturb)
         
-        
+        if self.beforeDismiss != nil {
+            self.beforeDismiss!()
+        }
         self.dismiss(self)
         
 //        self.dismissViewController(self)

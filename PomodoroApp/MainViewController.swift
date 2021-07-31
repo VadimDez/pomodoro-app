@@ -51,6 +51,8 @@ class MainViewController: NSViewController {
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.isMovableByWindowBackground = true
         //self.view.window?.styleMask |= NSFullSizeContentViewWindowMask
+        
+        self.setAlwaysOnTop()
     }
     
     func callback (_ minutes: Int, seconds: Int) {
@@ -104,6 +106,8 @@ class MainViewController: NSViewController {
     @IBAction func showSettings(_ sender: AnyObject) {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let settingsViewController = storyboard.instantiateController(withIdentifier: "settings") as! SettingsViewController
+        
+        settingsViewController.beforeDismiss = self.setAlwaysOnTop
         
         self.presentAsSheet(settingsViewController)
     }
@@ -238,5 +242,11 @@ class MainViewController: NSViewController {
     func updateTimeLabels() {
         self.minutesLabel.stringValue = "\(self.doubleNumber(self.countdownMinutes))"
         self.secondsLabel.stringValue = "\(self.doubleNumber(self.countdownSeconds))"
+    }
+    
+    func setAlwaysOnTop() {
+        if let stayOnTop = self.defaults.value(forKey: DataKeys.stayOnTop) {
+            self.view.window?.level = stayOnTop as! NSNumber == NSNumber(value: 1) ? .floating : NSWindow.Level(rawValue: 0)
+        }
     }
 }

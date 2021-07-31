@@ -175,6 +175,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onAlwaysOnTopToggle:" target="2L7-Wt-DHj" id="ngY-gd-KMS"/>
+                                </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYz-FS-p36">
                                 <rect key="frame" x="104" y="81" width="93" height="18"/>
